@@ -1,19 +1,18 @@
 <view class="background-image"></view>
 <view class="container">
-  <!-- 商品信息 -->
-  <view class="product-list">
+  <!-- 商品信息 使用表格式布局展示 -->
+  <view class="product-table">
     <view class="product-item" wx:for="{{selectedItems}}" wx:key="id">
-      <text>{{item.name}}</text>
-      <text>数量：{{item.quantity}}</text>
-      <text>单价：{{item.price}} 元</text>
+      <text class="product-col product-name">{{item.name}}</text>
+      <text class="product-col product-quantity">数量： {{item.quantity}}</text>
+      <text class="product-col product-price">单价： {{item.price}}元</text>
     </view>
   </view>
   <!-- 总价 -->
   <view class="border-line height-1"></view>
-
   <view class="total-price">
     <view class="total-price-text">总价：</view>
-    <text class="total-price-value">¥{{totalPrice}}元</text>
+    <text class="total-price-value">{{totalPrice}}元</text>
   </view>
   <!-- 支付方式 -->
   <view class="payment-method">
