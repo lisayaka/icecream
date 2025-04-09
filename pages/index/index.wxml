@@ -1,0 +1,72 @@
+<view class="container">
+  <!-- 背景色 -->
+  <view class="background-image"></view>
+  
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-input-wrap">
+      <image class="search-icon" src="/icons/search.png"></image>
+      <input class="search-input" 
+             placeholder="搜索酥山冰淇淋" 
+             placeholder-class="placeholder-style" 
+             value="{{searchValue}}" 
+             bindinput="handleInput"
+             bindconfirm="handleSearch"/>
+    </view>
+  </view>
+
+  <!-- 搜索结果展示 -->
+  <view class="search-results" wx:if="{{showResults}}">
+    <view class="search-item" wx:for="{{searchResults}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <image class="search-item-image" src="{{item.image}}" mode="aspectFill"/>
+      <view class="search-item-info">
+        <text class="search-item-name">{{item.name}}</text>
+        <text class="search-item-price">¥{{item.price}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="swiper-container" wx:if="{{!showResults}}">
+    <swiper indicator-dots autoplay interval="5000" duration="1000" indicator-active-color="#fff">
+      <block wx:for="{{bannerList}}" wx:key="index">
+        <swiper-item>
+          <image style="width: 400px;" src="{{item.imageUrl}}" mode="aspectFill"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 功能区横向滚动 -->
+  <view class="func-container">
+    <view wx:for="{{funcList}}" wx:key="index" class="func-item" bindtap="{{item.title === '我的订单' ? 'goToOrderPage' : item.title === '开始点单' ? 'goToCategoryPage' : item.title === '特色产品' ? 'goToSpecialProduct' : item.title === '新品推荐' ? 'goToNewProductPage' : ''}}">
+      <image src="{{item.icon}}" class="func-icon" />
+      <text class="func-text">{{item.title}}</text>
+    </view>
+  </view>
+
+  <!-- 动态商品展示 -->
+  <view class="goods-container">
+    <!-- 常规商品 -->
+    <view class="section-title">
+      <text class="title">店长推荐</text>
+    </view>
+    <view class="grid">
+      <view wx:for="{{goodsList}}" wx:key="id" class="goods-item">
+        <view class="image-box">
+          <image src="{{item.image}}" class="goods-image" bindtap="goToDetail" data-id="{{item.id}}" />
+          <view class="tags">
+            <text wx:for="{{item.tags}}" wx:key="*this" class="tag tag-{{index%3}}">{{item}}</text>
+          </view>
+        </view>
+        <view class="info">
+          <text class="title" style="color: rgb(0, 0, 0);">{{item.name}}</text>
+          <view class="price-line">
+            <text class="price">¥{{item.price}}</text>
+            <button class="cart-btn" bindtap="addToCart" data-item="{{item}}">
+              <image src="/icons/add.png" class="cart-icon" />
+            </button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,24 @@
+<!-- pages/category/category.wxml -->
+<view class="container">
+  <view class="background-image"></view>
+  <!-- 左侧分类导航 -->
+  <scroll-view class="left-nav" scroll-y>
+    <view wx:for="{{categories}}" wx:key="id" class="nav-item {{activeCate === item.id ? 'active' : ''}}" bindtap="switchCategory" data-id="{{item.id}}">
+      {{item.name}}
+    </view>
+  </scroll-view>
+
+  <!-- 右侧商品列表 -->
+  <scroll-view class="right-list" scroll-y>
+    <view wx:for="{{currentProducts}}" wx:key="id" class="product-item" catchtap="goToDetail" data-id="{{item.id}}">
+      <image class="product-img" src="{{item.image}}" mode="aspectFill" />
+      <view class="product-info">
+        <text class="title">{{item.name}}</text>
+        <text class="price">￥{{item.price}}</text>
+      </view>
+      <view class="cart-btn" catchtap="addToCart" data-id="{{item.id}}">
+        <image src="/icons/add.png" class="cart-icon" />
+      </view>
+    </view>
+  </scroll-view>
+</view>

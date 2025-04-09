@@ -1,0 +1,41 @@
+<!-- 搜索页面 -->
+<!-- 背景色 -->
+<view class="background-image"></view>
+<view class="content">
+  <!-- 搜索框 -->
+  <view class="search-bar">
+    <view class="search-input-wrap">
+      <image class="search-icon" src="/icons/search.png"></image>
+      <input class="search-input" 
+             placeholder="搜索商品" 
+             placeholder-class="placeholder-style"
+             value="{{searchKeyword}}"
+             bindinput="onSearchInput"
+             bindconfirm="onSearch"/>
+      <view class="search-btn" bindtap="onSearch">搜索</view>
+    </view>
+  </view>
+
+  <!-- 搜索结果列表 -->
+  <view class="search-results">
+    <view class="grid">
+      <view class="goods-item" wx:for="{{searchResults}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+        <view class="image-box">
+          <image class="goods-image" src="{{item.image}}" mode="aspectFill"></image>
+          <view class="tags">
+            <text class="tag tag-{{index % 3}}" wx:for="{{item.tags}}" wx:key="*this">{{item}}</text>
+          </view>
+        </view>
+        <view class="info">
+          <view class="name">{{item.name}}</view>
+          <view class="price-line">
+            <text class="price">¥{{item.price}}</text>
+            <button class="cart-btn" catchtap="addToCart" data-id="{{item.id}}">
+              <image class="cart-icon" src="/icons/add.png"></image>
+            </button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

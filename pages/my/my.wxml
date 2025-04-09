@@ -1,0 +1,87 @@
+<view class="mine-container">
+    <view class="background-image"></view>
+  <!-- 顶部登录区域 -->
+  <view class="login-area">
+    <view class="avatar" bindtap="{{!userInfo ? 'showLoginRegisterModal' : 'navigateToAddress'}}">
+      <block wx:if="{{!userInfo}}">
+        <image src="/images/avatar.jpg" class="circle" mode="aspectFill"></image>
+        <text>点击登录</text>
+      </block>
+      <block wx:else>
+        <image src="{{userInfo.avatarUrl}}" class="circle" mode="aspectFill"></image>
+        <text>{{userInfo.nickName}}</text>
+      </block>
+    </view>
+  </view>
+
+  <view class="function-buttons">
+    <view class="button-item" bindtap="navigateToAddress">
+      <image src="/icons/message.png" mode="aspectFit"></image>
+      <text>个人信息</text>
+    </view>
+    <view class="button-item" bindtap="navigateToMessage">
+      <image src="/icons/address.png" mode="aspectFit"></image>
+      <text>我的地址</text>
+    </view>
+    <view class="button-item" bindtap="navigateToCollection">
+      <image src="/icons/order.png" mode="aspectFit"></image>
+      <text>我的订单</text>
+    </view>
+    <view class="button-item" bindtap="logout" wx:if="{{userInfo}}">
+      <image src="/icons/logout.png" mode="aspectFit"></image>
+      <text>退出登录</text>
+    </view>
+  </view>
+
+  <!-- 登录注册蒙版 -->
+  <view class="mask" wx:if="{{showLoginRegisterModal}}">
+    <view class="login-register-modal">
+      <button bindtap="wechatLogin">微信一键登录</button>
+      <button bindtap="phoneLogin">手机号安全登录</button>
+      <button bindtap="closeLoginRegisterModal">取消</button>
+    </view>
+  </view>
+
+  <!-- 个人信息蒙版 -->
+  <view class="mask" wx:if="{{showModifyInfoModal}}">
+    <view class="modify-info-modal">
+      <text class="modal-title">个人信息</text>
+      <view class="info-item">
+        <text>头像</text>
+        <image src="{{userInfo.avatarUrl}}" mode="aspectFill" bindtap="chooseAvatar"></image>
+      </view>
+      <view class="info-item">
+        <text>昵称</text>
+        <input type="text" value="{{userInfo.nickName}}" bindinput="handleNicknameChange" />
+      </view>
+      <view class="button-group">
+        <button bindtap="saveModifiedInfo">保存</button>
+        <button bindtap="closeModifyInfoModal">取消</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 我的地址蒙版 -->
+  <view class="mask" wx:if="{{showAddressModal}}">
+    <view class="address-modal">
+      <text class="modal-title">修改地址</text>
+      <view class="address-item">
+        <text>收件人姓名</text>
+        <input type="text" value="{{addressInfo.name}}" bindinput="handleNameChange" />
+      </view>
+      <view class="address-item">
+        <text>联系电话</text>
+        <input type="text" value="{{addressInfo.phone}}" bindinput="handlePhoneChange" />
+      </view>
+      <view class="address-item">
+        <text>详细地址</text>
+        <input type="text" value="{{addressInfo.detail}}" bindinput="handleDetailChange" />
+      </view>
+      <view class="button-group">
+        <button bindtap="saveAddress">保存</button>
+        <button bindtap="closeAddressModal">取消</button>
+      </view>
+    </view>
+  </view>
+
+</view>

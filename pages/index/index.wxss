@@ -1,0 +1,273 @@
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 135%;
+  z-index: -1; /* 让图片处于最底层 */
+  background-color: #FFF5F5;
+}
+
+.content {
+  position: relative;
+  padding: 20px;
+  color: white; /* 假设文字颜色为白色，以便在背景图上清晰显示 */
+}
+
+.swiper-container {
+  text-align: center;
+  margin: 10px 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.swiper-container swiper {
+  width: 93%;
+  height: 400rpx;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.swiper-container swiper image {
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx;
+}
+
+@media screen and (min-width: 750rpx) {
+  .swiper-container swiper {
+    width: 700rpx; 
+  }
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 28rpx;
+}
+
+.location .icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 12rpx;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.more {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.hot-scroll {
+  padding-left: 32rpx;
+}
+
+.hot-item {
+  display: inline-flex;
+  flex-direction: column;
+  width: 320rpx;
+  margin-right: 24rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  overflow: hidden;
+  box-shadow: 0 8rpx 24rpx rgba(0,0,0,0.05);
+}
+
+.hot-image {
+  width: 320rpx;
+  height: 320rpx;
+}
+
+.hot-info {
+  padding: 24rpx;
+}
+
+.price-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16rpx;
+}
+
+.price {
+  color: #FF0003;
+  font-weight: bold;
+}
+
+.sold {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24rpx;
+  padding: 0 32rpx;
+  border: #F5CBA7;
+}
+
+.goods-item {
+  background: #ffffff;
+  border-radius: 24rpx;
+  overflow: hidden;
+  height:545rpx;
+}
+
+.image-box {
+  position: relative;
+  height: 400rpx;
+}
+
+.goods-image {
+  width: 100%;
+  height: 400rpx;
+}
+
+.tags {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16rpx;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+}
+
+.tag {
+  padding: 6rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+  color: #fff;
+}
+
+.tag-0 { background: rgba(255,71,87,0.9); }
+.tag-1 { background: rgba(78,205,196,0.9); }
+.tag-2 { background: rgba(255,230,109,0.9); }
+
+.info {
+  padding: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.price-line {
+  display: flex;
+  align-items: center; 
+  width: 100%; 
+  box-sizing: border-box;
+  position: relative; /* 添加相对定位 */
+}
+
+.price {
+  color: #FF0003;
+  font-weight: bold;
+}
+
+.cart-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  position: absolute; /* 使用绝对定位 */
+  right: -150rpx; /* 统一的右侧距离 */
+  top: 50%;
+  transform: translateY(-50%); /* 垂直居中 */
+  width: 48rpx; /* 固定宽度 */
+  height: 48rpx; /* 固定高度 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-icon {
+  width: 20px; /* 稍微调小一点图标 */
+  height: 20px;
+}
+
+/* 功能区滚动 */
+.func-container {  
+  display: flex;  
+  justify-content: space-between; /* 或space-around */  
+  padding: 15rpx;   
+}  
+
+.func-item {  
+  flex: 1;  
+  display: flex;  
+  flex-direction: column;  
+  align-items: center;  
+  min-width: 120rpx; /* 防止内容挤压 */  
+}  
+
+.func-text {  
+  font-size: 24rpx;  
+  color: #666;  
+  text-align: center;  
+  line-height: 1.1;  
+}  
+
+.func-icon {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  margin-bottom: 10rpx;
+}
+
+/* 搜索栏样式 */
+.search-bar {
+  background-color: rgba(255, 255, 255, 0.9);
+  margin: 20rpx;
+  border-radius: 30rpx;
+}
+
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  background-color: #FFF5F5;
+  padding: 5rpx 20rpx; /* 减小上下内边距 */
+  border-radius: 30rpx;
+  border: 2rpx solid #F5CBA7; /* 添加边框与搜索页面一致 */
+  box-shadow: 0 2rpx 6rpx rgba(245, 203, 167, 0.1); /* 添加阴影与搜索页面一致 */
+}
+
+.search-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 15rpx;
+  flex-shrink: 0;
+}
+
+.search-input {
+  flex: 1;
+  height: 30rpx; /* 设置输入框高度 */
+  font-size: 28rpx;
+  color: #333;
+  min-width: 0; /* 防止输入框被挤压 */
+}
+
+.search-btn {
+  padding: 8rpx 24rpx; /* 调整按钮内边距 */
+  background-color: #F5CBA7;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 30rpx;
+  margin-left: 20rpx;
+  flex-shrink: 0; /* 防止按钮被挤压 */
+  font-weight: 500;
+}
+
+.placeholder-style {
+  color: #999;
+}
+

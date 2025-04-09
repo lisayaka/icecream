@@ -1,0 +1,36 @@
+<view class="container">
+  <view class="background-image"></view>
+  <!-- 底部固定的合计和结算区域 -->
+  <view class="bottom-bar">
+    <view class="left-section">
+      <view class="custom-checkbox" bindtap="toggleAllCheck">
+        <view class="checkmark" hidden="{{!allChecked}}"></view>
+      </view>
+      <text>全选</text>
+    </view>
+    <view class="right-section">
+      <view class="total-price">合计: {{totalPrice}} 元</view>
+      <button class="pay-btn" bindtap="onPay">结算</button>
+    </view>
+  </view>
+</view>
+
+<!-- 购物车商品列表 -->
+<view class="cart-items">
+  <view class="cart-item" wx:for="{{cartList}}" wx:key="id">
+    <view class="custom-checkbox" bindtap="toggleCheck" data-index="{{index}}">
+      <view class="checkmark" hidden="{{!item.checked}}"></view>
+    </view>
+    <image class="product-img" src="{{item.image}}"></image>
+    <view class="product-info">
+      <view class="title">{{item.name}}</view>
+      <view class="price">¥ {{item.price}} 元</view>
+      <view class="quantity">
+        <view class="quantity-btn" bindtap="decreaseQuantity" data-index="{{index}}">-</view>
+        <text>{{item.quantity}}</text>
+        <view class="quantity-btn" bindtap="increaseQuantity" data-index="{{index}}">+</view>
+      </view>
+    </view>
+    <button class="delete-btn" bindtap="deleteItem" data-index="{{index}}">删除</button>
+  </view>
+</view>

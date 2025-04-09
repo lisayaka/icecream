@@ -1,0 +1,76 @@
+.order-list-container {
+  padding: 10px;
+}
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* 让图片处于最底层 */
+  background-color: #FFF5F5; /* 使用填充颜色替代背景图片 */
+}
+.order-item {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #F5CBA7;
+  padding: 20px;
+  margin: auto 20rpx;
+  margin-bottom: 10px;
+}
+
+.order-id {
+  font-size: 28rpx;
+  margin-bottom: 10px;
+  padding-left: 5rpx;
+}
+
+.order-content {
+  margin: 15rpx 0;
+}
+
+.product-title {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 8rpx;
+  padding-left: 20rpx;
+}
+
+.product-line {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.8;
+}
+
+.first-line {
+  padding-left: 5rpx;
+}
+
+.product-list {
+  padding-left: 128rpx; /* 与"商品名称:"对齐 */
+}
+
+.price-item {
+  width: 120rpx; /* 固定宽度，保证价格列对齐 */
+  margin-left: auto; /* 推到右边 */
+  font-size: 28rpx;
+  color: #333;
+  text-align: left;
+}
+
+.order-price {
+  margin-top: 15rpx;
+  color: #050505;
+  font-size: 28rpx;
+  padding-top: 15rpx;
+  padding-left: 5rpx;
+}
+
+.empty-tip {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  padding-top: 20px;
+}

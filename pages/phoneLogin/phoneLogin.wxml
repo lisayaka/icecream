@@ -1,0 +1,37 @@
+<view class="login-container">
+  <view class="title">手机号登录</view>
+  
+  <!-- 手机号输入 -->
+  <view class="input-group">
+    <view class="phone-input">
+      <text class="prefix">+86</text>
+      <input type="number" maxlength="11" placeholder="请输入手机号" value="{{phone}}" bindinput="handlePhoneInput" />
+    </view>
+  </view>
+
+  <!-- 验证码输入 -->
+  <view class="input-group">
+    <view class="code-input">
+      <input type="number" maxlength="6" placeholder="请输入验证码" value="{{code}}" bindinput="handleCodeInput" />
+      <button class="send-code-btn {{canSendCode ? '' : 'disabled'}}" bindtap="sendCode" disabled="{{!canSendCode}}">
+        {{countdown > 0 ? countdown + 's' : '发送验证码'}}
+      </button>
+    </view>
+  </view>
+
+  <!-- 用户协议 -->
+  <view class="agreement">
+    <checkbox-group bindchange="handleAgreementChange">
+      <label>
+        <checkbox value="agreed" checked="{{isAgreed}}" />
+        <text>我已阅读并同意</text>
+        <text class="link">《用户服务协议》</text>
+        <text>和</text>
+        <text class="link">《隐私政策》</text>
+      </label>
+    </checkbox-group>
+  </view>
+
+  <!-- 登录按钮 -->
+  <button class="login-btn {{canLogin ? '' : 'disabled'}}" bindtap="handleLogin" disabled="{{!canLogin}}">登录</button>
+</view> 

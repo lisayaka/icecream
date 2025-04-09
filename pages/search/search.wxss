@@ -1,0 +1,163 @@
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 135%;
+  z-index: -1;
+  background-color: #FFF5F5; /* 使用填充颜色替代背景图片 */
+}
+
+.content {
+  position: relative;
+  padding: 20rpx;
+  color: white;
+}
+
+/* 搜索栏样式 */
+.search-bar {
+  padding: 12rpx 20rpx;
+  margin: 20rpx;
+  border-radius: 30rpx;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 10rpx 20rpx;
+  border-radius: 30rpx;
+  border: 2rpx solid #F5CBA7;
+  box-shadow: 0 2rpx 6rpx rgba(245, 203, 167, 0.1);
+}
+
+.search-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 15rpx;
+  flex-shrink: 0;
+}
+
+.search-input {
+  flex: 1;
+  height: 50rpx;
+  font-size: 28rpx;
+  color: #333;
+  min-width: 0; /* 防止输入框被挤压 */
+}
+
+.search-btn {
+  padding: 8rpx 24rpx;
+  background-color: #F5CBA7;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 30rpx;
+  margin-left: 20rpx;
+  flex-shrink: 0;
+  font-weight: 500;
+}
+
+.placeholder-style {
+  color: #999;
+}
+
+/* 搜索结果样式 */
+.search-results {
+  margin-top: 20rpx;
+}
+
+/* 搜索结果网格样式 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24rpx;
+  padding: 0 32rpx;
+}
+
+.goods-item {
+  background: #ffffff;
+  border-radius: 24rpx;
+  overflow: hidden;
+  height: 545rpx;
+}
+
+.image-box {
+  position: relative;
+  height: 400rpx;
+}
+
+.goods-image {
+  width: 100%;
+  height: 400rpx;
+}
+
+.tags {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16rpx;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+}
+
+.tag {
+  padding: 6rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+  color: #fff;
+}
+
+.tag-0 { background: rgba(255,71,87,0.9); }
+.tag-1 { background: rgba(78,205,196,0.9); }
+.tag-2 { background: rgba(255,230,109,0.9); }
+
+.info {
+  padding: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.name {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.price-line {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.price {
+  color: #FF0003;
+  font-weight: bold;
+}
+
+.cart-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  right: -150rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48rpx;
+  height: 48rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-icon {
+  width: 20px;
+  height: 20px;
+} 
