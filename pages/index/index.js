@@ -50,6 +50,13 @@ Page({
       goodsList: sortedGoods
     });
   },
+  onShow() {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 0 // 首页的索引是0
+      });
+    }
+  },
   handleInput: function (e) {
     const searchValue = e.detail.value;
     this.setData({
@@ -99,9 +106,9 @@ Page({
       // 如果商品已在购物车中，增加其数量
       cartList[existingItemIndex].quantity++;
     } else {
-      // 如果商品不在购物车中，添加到购物车并设置初始数量为 1，默认选中
+      // 如果商品不在购物车中，添加到购物车并设置初始数量为 1，默认不选中
       item.quantity = 1;
-      item.checked = true; // 默认选中
+      item.checked = false; // 默认不选中
       cartList.push(item);
     }
     this.setData({

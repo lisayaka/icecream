@@ -101,6 +101,7 @@ Page({
     } else {
       // 如果商品不在购物车中，添加到购物车并设置初始数量为 1
       item.quantity = 1;
+      item.checked = false; // 默认不选中
       cartList.push(item);
     }
     

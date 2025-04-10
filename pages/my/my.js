@@ -20,7 +20,42 @@ Page({
         addressInfo:addressInfo
       });
     }
+    
+    // 尝试从本地存储中获取用户信息
+    const userInfo = wx.getStorageSync('userInfo');
+    if (userInfo) {
+      this.setData({
+        userInfo: userInfo
+      });
+    }
   },
+
+  // 每次页面显示时刷新用户数据
+  onShow() {
+    // 更新tabBar选中状态
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 3 // 我的页面的索引是3
+      });
+    }
+    
+    // 从本地存储获取最新的用户信息
+    const userInfo = wx.getStorageSync('userInfo');
+    if (userInfo) {
+      this.setData({
+        userInfo: userInfo
+      });
+    }
+    
+    // 获取最新的地址信息
+    const addressInfo = wx.getStorageSync('addressInfo');
+    if (addressInfo) {
+      this.setData({
+        addressInfo: addressInfo
+      });
+    }
+  },
+
   navigateToMessage() {
     if (this.data.userInfo) {
       this.setData({
@@ -118,15 +153,6 @@ Page({
     this.setData({
       showModifyInfoModal: false
     });
-  },
-  onLoad() {
-    // 尝试从本地存储中获取用户信息
-    const userInfo = wx.getStorageSync('userInfo');
-    if (userInfo) {
-      this.setData({
-        userInfo: userInfo
-      });
-    }
   },
   showLoginRegisterModal() {
     // 只有在用户未登录时才显示登录窗口

@@ -16,7 +16,7 @@
     "navigationBarBackgroundColor": "#F5CBA7"
   },
   "tabBar": {
-    "custom": false,
+    "custom": true,
     "color": "#7D7D7D",
     "selectedColor": "#F5CBA7",
     "backgroundColor": "#FFFFFF",

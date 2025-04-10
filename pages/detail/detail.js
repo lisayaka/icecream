@@ -19,7 +19,7 @@ Page({
     const index = cartList.findIndex(item => item.id === goodsDetail.id);
     if (index === -1) {
       goodsDetail.quantity = 1;
-      goodsDetail.checked = true;
+      goodsDetail.checked = false;
       cartList.push(goodsDetail);
     } else {
       cartList[index].quantity++;

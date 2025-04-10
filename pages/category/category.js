@@ -16,6 +16,13 @@ Page({
 
   // 页面显示时触发
   onShow() {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 1 // 分类页的索引是1
+      });
+    }
+    
+    // 保留原有的onShow逻辑
     const app = getApp();
     // 检查全局变量中是否有指定分类ID
     if (app.globalData && app.globalData.categoryId) {
@@ -55,9 +62,9 @@ Page({
   // 检查商品是否已经在购物车中
   const index = app.globalData.cartList.findIndex(item => item.id === product.id);
   if (index === -1) {
-    // 商品不在购物车中，添加到购物车，默认选中
+    // 商品不在购物车中，添加到购物车，默认不选中
     product.quantity = 1;
-    product.checked = true; // 默认选中
+    product.checked = false; // 默认不选中
     app.globalData.cartList.push(product);
   } else {
     // 商品已经在购物车中，增加数量

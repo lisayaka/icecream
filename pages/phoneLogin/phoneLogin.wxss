@@ -70,6 +70,9 @@ input {
   border-radius: 44rpx;
   margin-top: 60rpx;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-btn.disabled {

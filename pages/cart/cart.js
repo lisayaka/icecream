@@ -2,22 +2,22 @@ Page({
   data: {
       cartList: [],
       totalPrice: 0,
-      allChecked: true
+      allChecked: false
   },
   onLoad() {
       const app = getApp();
       let cartList = app.globalData.cartList || [];
-      // 确保每个商品对象都有 checked 属性，并默认设为选中
+      // 确保每个商品对象都有 checked 属性，并默认设为不选中
       cartList = cartList.map(item => {
           return {
              ...item,
-              checked: true
+              checked: false
           };
       });
       
       this.setData({
           cartList,
-          allChecked: cartList.length > 0
+          allChecked: false
       });
       
       // 更新全局数据，确保一致性
@@ -27,36 +27,44 @@ Page({
   },
 
   onShow() {
-      const needClearCart = wx.getStorageSync('needClearCart');
-      console.log('读取 needClearCart 状态:', needClearCart);
-      if (needClearCart) {
-          this.clearCart();
-          wx.removeStorageSync('needClearCart');
-      }
-      
-      const app = getApp();
-      let cartList = app.globalData.cartList || [];
-      
-      // 确保每个商品对象都有 checked 属性，并默认设为选中
-      cartList = cartList.map(item => {
-          return {
-             ...item,
-              checked: item.checked === undefined ? true : item.checked
-          };
+    // 更新tabBar选中状态
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 2 // 购物车页的索引是2
       });
-      
-      // 判断是否所有商品都被选中
-      const allChecked = cartList.length > 0 && cartList.every(item => item.checked);
-      
-      this.setData({
-          cartList,
-          allChecked
-      });
-      
-      // 更新全局数据
-      app.globalData.cartList = cartList;
-      
-      this.calculateTotalPrice();
+    }
+    
+    // 保留原来的onShow逻辑
+    const needClearCart = wx.getStorageSync('needClearCart');
+    console.log('读取 needClearCart 状态:', needClearCart);
+    if (needClearCart) {
+        this.clearCart();
+        wx.removeStorageSync('needClearCart');
+    }
+    
+    const app = getApp();
+    let cartList = app.globalData.cartList || [];
+    
+    // 确保每个商品对象都有 checked 属性，并默认设为不选中
+    cartList = cartList.map(item => {
+        return {
+           ...item,
+            checked: item.checked === undefined ? false : item.checked
+        };
+    });
+    
+    // 判断是否所有商品都被选中
+    const allChecked = cartList.length > 0 && cartList.every(item => item.checked);
+    
+    this.setData({
+        cartList,
+        allChecked
+    });
+    
+    // 更新全局数据
+    app.globalData.cartList = cartList;
+    
+    this.calculateTotalPrice();
   },
 
   // 勾选商品事件处理函数

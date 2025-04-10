@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 135%;
+  height: 143%;
   z-index: -1; /* 让图片处于最底层 */
   background-color: #FFF5F5;
 }

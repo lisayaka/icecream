@@ -22,7 +22,7 @@ App({
         name: "开元盛世榴芒盛宴",
         image:'/images/product2.png', 
         type: "盛唐",
-        price:5.9,
+        price:15.9,
         tags:['浓郁','交融'],
         checked:false,
         description: "精选泰国金枕头榴莲与芒果完美搭配，搭配醇香奶油，口感丝滑。采用特制工艺，保持水果的新鲜口感，让您品尝到夏日的清爽与甜蜜",

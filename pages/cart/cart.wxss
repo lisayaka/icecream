@@ -32,7 +32,7 @@
 
 .cart-items {
   padding: 10rpx;
-  padding-bottom: 120rpx; /* 减小底部内边距 */
+  padding-bottom: 230rpx; /* 增加底部内边距，为调整后的bottom-bar和tabbar留出更多空间 */
 }
 
 .cart-item {
@@ -125,7 +125,7 @@
 
 .bottom-bar {
   position: fixed;
-  bottom: 0rpx; /* 减小与tabbar的距离 */
+  bottom: 170rpx; /* 增加底部间距，确保在tabBar上方有足够空间 */
   left: 0;
   width: 100%;
   display: flex;
@@ -138,18 +138,27 @@
   padding: 20rpx;
   box-sizing: border-box;
   z-index: 999;
+  height: 100rpx; /* 调整高度确保全选按钮完全显示 */
 }
 
 .left-section {
   display: flex;
   align-items: center;
-  gap: 10rpx;
+  gap: 15rpx; /* 增加间距，使全选文字和复选框有更好的间隔 */
+  padding-left: 10rpx; /* 增加左侧内边距 */
+}
+
+.left-section text {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
 }
 
 .right-section {
   display: flex;
   align-items: center;
   gap: 20rpx;
+  padding-right: 10rpx; /* 增加右侧内边距 */
 }
 
 .total-price {
